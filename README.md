@@ -1,6 +1,6 @@
 # Docker Symfony (PHP7-FPM - NGINX - MySQL - ELK)
 
-Docker-symfony gives you everything you need for developing Symfony application. This complete stack run with docker and [docker-compose (1.7 or higher)](https://docs.docker.com/compose/).
+Docker-symfony gives you everything you need for developing Symfony application. 
 
 ## Installation
 
@@ -10,7 +10,6 @@ Docker-symfony gives you everything you need for developing Symfony application.
     cp .env.dist .env
     ```
 
-
 2. Build/run containers with (with and without detached mode)
 
     ```bash
@@ -19,23 +18,11 @@ Docker-symfony gives you everything you need for developing Symfony application.
     ```
 
 3. Update your system host file (add symfony.dev)
-
-    ```bash
-    # get containers IP address and update host (replace IP according to your configuration)
-    $ docker inspect --format '{{ .NetworkSettings.Networks.dockersymfony_default.IPAddress }}' $(docker ps -f name=nginx -q)
-    # unix only (on Windows, edit C:\Windows\System32\drivers\etc\hosts)
-    $ sudo echo "171.17.0.1 symfony.dev" >> /etc/hosts
-    ```
-    **Note:** If it's empty, run `docker inspect $(docker ps -f name=nginx -q) | grep IPAddress` instead.
-    
-    OR just do: 
     
     ```bash
     $ sudo echo "127.0.0.1 symfony.dev" >> /etc/hosts
     ```
         
-    
-
 4. Prepare Symfony app
 
     1. Update app/config/parameters.yml
@@ -44,6 +31,7 @@ Docker-symfony gives you everything you need for developing Symfony application.
         # path/to/your/symfony-project/app/config/parameters.yml
         parameters:
             database_host: mysqldb
+            ...
         ```
 
     2. Composer install & create database
