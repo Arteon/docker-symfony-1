@@ -39,10 +39,9 @@ Docker-symfony gives you everything you need for developing Symfony application.
         ```bash
         $ docker-compose exec php bash
         $ composer install
-        # Symfony2
-        $ sf doctrine:database:create
-        $ sf doctrine:schema:update --force
-        $ sf doctrine:fixtures:load --no-interaction
+        ```
+           
+        ```bash   
         # Symfony3
         $ sf3 doctrine:database:create
         $ sf3 doctrine:schema:update --force
